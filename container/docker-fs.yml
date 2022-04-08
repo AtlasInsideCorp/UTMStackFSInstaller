@@ -1,0 +1,51 @@
+version: "3.8"
+
+volumes:
+  postgres_data:
+    external: false
+  shared_data:
+    external: false
+
+services:
+  nginx:
+    image: "utmstack.azurecr.io/utmstack_federation_service_frontend:${TAG}"
+    depends_on:
+      - panel
+    ports:
+      - "80:80"
+      - "443:443"
+
+  postgresql:
+    image: postgres:12.3
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - ./postgres/init.sh:/docker-entrypoint-initdb.d/init.sh
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=${BD_PASS}"
+      - "POSTGRES_DB=federation_service"
+    ports:
+      - 5432:5432
+    command:
+      ["postgres", "-c", "shared_buffers=256MB", "-c", "max_connections=1000"]
+
+  panel:
+    image: utmstack.azurecr.io/utmstack_federation_service_backend:${TAG}
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/federation_service
+      - CRONDATA_SERVER_HOST=${HOSTNAME}
+      - DB_PASS=${BD_PASS}
+      - PROMETHEUS_TARGET_CONFIG_PATH=/etc/prometheus/targets
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    depends_on:
+      - postgresql
+
+  watchtower:
+    image: "containrrr/watchtower:latest"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+    environment:
+      - WATCHTOWER_NO_RESTART=false
+      - WATCHTOWER_POLL_INTERVAL=300
