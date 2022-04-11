@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CLEAR_LINE='\r\033[K'
-printf "${CLEAR_LINE}[Initializing]${GREEN}   Welcome to UTMStack Federation Service Installer, please wait while we do all for you!${NO_COLOR}\n"
+printf "${CLEAR_LINE}[Initializing]${GREEN}Welcome to UTMStack Federation Service Installer, please wait while we do all for you!${NO_COLOR}\n"
 read -p 'Enter Password: ' passvar
 
 if [ ! "$passvar" ]; then
@@ -10,7 +10,7 @@ if [ ! "$passvar" ]; then
 fi
 
 ip=$(hostname -I | awk '{print $1}')
-sudo cat > /usr/share/crondata/container/.env << EOF
+sudo cat > .env << EOF
 HOSTNAME=$ip
 BD_PASS=$passvar
 EOF
