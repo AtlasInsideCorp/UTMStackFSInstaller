@@ -20,7 +20,7 @@ printf "${CLEAR_LINE}[6/6]⏳ Starting UTMStack Federation Service, please wait.
 /bin/bash ./bin/start.sh
 
 printf "${CLEAR_LINE}[6/6]⏳ UTMStack Federation Service services have been started; please wait for the panel to be accessible, this may take a few minutes"
-while [ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/api/ping)" != "200" ]; do
+while [ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost/api/ping)" != "200" ]; do
  sleep 10; 
  printf "${CLEAR_LINE} Checking for panel..." 
 done
