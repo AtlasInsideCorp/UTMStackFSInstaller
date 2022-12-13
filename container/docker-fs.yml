@@ -18,7 +18,7 @@ services:
       - "443:443"
 
   postgresql:
-    image: postgres:12
+    image: "utmstack.azurecr.io/postgres:${TAG}"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
       - ./postgres/init.sh:/docker-entrypoint-initdb.d/init.sh
