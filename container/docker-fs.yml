@@ -8,7 +8,7 @@ volumes:
 
 services:
   nginx:
-    image: "utmstack.azurecr.io/utmstack_federation_service_frontend:${TAG}"
+    image: "utmstack.azurecr.io/utmstack_federation_service_frontend:v9"
     depends_on:
       - backend
     volumes:
@@ -18,7 +18,7 @@ services:
       - "443:443"
 
   postgresql:
-    image: "utmstack.azurecr.io/postgres:${TAG}"
+    image: "postgres:12"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
       - ./postgres/init.sh:/docker-entrypoint-initdb.d/init.sh
@@ -32,7 +32,7 @@ services:
       ["postgres", "-c", "shared_buffers=256MB", "-c", "max_connections=1000"]
 
   backend:
-    image: utmstack.azurecr.io/utmstack_federation_service_backend:${TAG}
+    image: utmstack.azurecr.io/utmstack_federation_service_backend:v9
     environment:
       - SPRING_PROFILES_ACTIVE=prod,swagger
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/federation_service
