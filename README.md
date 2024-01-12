@@ -3,7 +3,7 @@
 ## Recommendations
 
 ### Operating System
-This installation guide provides instructions to perform the UTMStack Federation Service installation on Ubuntu 20.04 LTS.
+This installation guide provides instructions to perform the UTMStack Federation Service installation on Ubuntu 22.04 LTS.
 ### Resources for Master
 | :exclamation:  Minimum Resources Requeriments
 |-----------------------------------------|
