@@ -7,7 +7,7 @@ This installation guide provides instructions to perform the UTMStack Federation
 ### Resources for Master
 | :exclamation:  Minimum Resources Requeriments
 |-----------------------------------------|
-- MINIMUM REQUERED for non-prod environments: 2 Cores, 4 GB of RAM, 25GB Disk Space (Minimum requered)
+- MINIMUM REQUERED for non-prod environments: 2 Cores, 4 GB of RAM, 20GB Disk Space (Minimum requered)
 - RECOMMENDED for prod environments: 4 Cores, 8 GB of RAM, 30GB Disk Space (Minimum requered)
 
 ## Installation steps
@@ -18,5 +18,5 @@ This installation guide provides instructions to perform the UTMStack Federation
 - Unzip the installer using the following command `unzip UTMStackFSInstaller*.zip`, if you don't have the unzip tool you can install it using the command `sudo apt-get install zip unzip`
 - Set execution permissions with `#cd UTMStackFSInstaller && sudo chmod +x utm_fs_installer.sh`
 - Execute installer `./utm_fs_installer.sh`
-- Once the installation process is finished you can access the panel with the credentials-> username: `admin`, password:`The password filled during the instalation`
+- Once the installation process is finished you can access the panel with the credentials-> username: `admin`, password:`The password filled during the installation`
   
