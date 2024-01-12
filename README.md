@@ -7,8 +7,8 @@ This installation guide provides instructions to perform the UTMStack Federation
 ### Resources for Master
 | :exclamation:  Minimum Resources Requeriments
 |-----------------------------------------|
-- MINIMUM REQUERED for non-prod environments: 2 Cores, 4 GB of RAM, 20GB Disk Space (Minimum requered)
-- RECOMMENDED for prod environments: 4 Cores, 8 GB of RAM, 20GB Disk Space (Minimum requered)
+- MINIMUM REQUERED for non-prod environments: 2 Cores, 4 GB of RAM, 25GB Disk Space (Minimum requered)
+- RECOMMENDED for prod environments: 4 Cores, 8 GB of RAM, 30GB Disk Space (Minimum requered)
 
 ## Installation steps
 ### Preparing for installation
