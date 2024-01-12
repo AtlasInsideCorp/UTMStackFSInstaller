@@ -14,7 +14,7 @@ This installation guide provides instructions to perform the UTMStack Federation
 ### Preparing for installation
 - Update packages list: apt update
 - Install WGET and NET-TOOLS: apt install wget net-tools
-- Download the latest version from https://github.com/AtlasInsideCorp/UTMStackFSInstaller/releases/latest/download/UTMStackFSInstaller.zip (You can use `# wget [URL]` to download the installer directly to the server)
+- Download the latest version from https://github.com/utmstack/UTMStackFSInstaller/releases/download/v10.0.0/UTMStackFSInstaller.zip (You can use `# wget [URL]` to download the installer directly to the server)
 - Unzip the installer using the following command `unzip UTMStackFSInstaller*.zip`, if you don't have the unzip tool you can install it using the command `sudo apt-get install zip unzip`
 - Set execution permissions with `#cd UTMStackFSInstaller && sudo chmod +x utm_fs_installer.sh`
 - Execute installer `./utm_fs_installer.sh`
